@@ -5252,8 +5252,6 @@ border: 0;
 }
 /*Hide the word Search when the user types in the field*/
 .QuickSearchFormTable input[type="text"]:focus {
-/*background-color:lime;
-color:transparent;*/
 }
 /*END QUICK SEARCH*/
 
@@ -5760,12 +5758,13 @@ table[id*="tblMain"].EventTable {
 }
 /*Increase width of summary table cell*/
 .EventTable .EventItemRegistrationControlCellDescription,
-.EventTable .EventItemRegistrationControlCellNumParticipants,
+.EventTable .EventItemRegistrationControlCellNumParticipants
  {
-  width:33%;
+  width:20%;
 }
 .EventTable .EventItemRegistrationControlCellPrice {
-  width:34%;
+  width:40%;
+  vertical-align:top;
 }
 /*Change background color of progress cells*/
 .EventTable .EventProgressCell {
@@ -5843,7 +5842,7 @@ table[id*="tblMain"].EventTable {
 }
 /*Step 1 - Increase padding on right of ticket name to accommodate long ticket names*/
 .EventTable td.EventItemRegistrationControlCellDescription {
-  width:65%;
+  width:60%;
 }
 .EventTable td.EventItemRegistrationControlCellDescription label {
   display:block;
@@ -5855,7 +5854,7 @@ table[id*="tblMain"].EventTable {
 }
 /*Decrease width of Step 2 table that contains number of tickets*/
 .landingcontent table.EventTable table[id*="dgPriceList"] table.w100p {
-  width:80%;
+  width:100%;
 }
 /*Step 2: Increase width of cell that contains ticket name*/
 .EventTable .w100p td.EventTicketsBodyCell:nth-child(2) {
@@ -6041,7 +6040,7 @@ table[id*="tblMain"].EventTable {
   /*Step 2 - Increase space between Individual Attendees and price*/  
   .EventTable .EventItemRegistrationControlCellPrice span {
     display:block;
-    margin-top:1rem;
+    /*margin-top:1rem;*/
   }
   /*Step 2 - Left-align the price*/
   .EventTable .EventItemRegistrationControlCellPrice {
