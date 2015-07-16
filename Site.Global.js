@@ -13,6 +13,9 @@ May 14, 2014
 Linda Brennan
 Added Fotorama image slider plugin
 Used in Annual Report microsite  photo essays
+
+EDIT: Yael Sprikut
+Date: July 15, 2015
 **********************************************/
 BBI = {
 	UWT: {
@@ -198,6 +201,14 @@ BBI = {
 							// add a class to all mandatory tr
 							$('td.DonationRequiredFieldMarker, td.DonationCaptureRequiredFieldMarker').closest('tr').addClass('hasRequired');
 							$('span.DonationRequiredFieldMarker').closest('tr').addClass('hasRequired');
+							$('td.DonationFieldControlCell:first-child').attr('width', '300'); //expands the first td in the radio button donation cells yaelsprikut
+							$('label[for$="PC3975_rdo_30_2"]').attr('style', 'width:350px;margin-left: 1.2rem;position: relative;bottom: 1rem;');
+							$('input[id$="PC3975_txtAmount"]').attr('style', 'width: 78px');
+							$('input[id$="PC3975_rdo_30_2"]').attr('style', 'position: relative;top: 8px;');
+							//$('span.vaTop').attr('style', 'margin-bottom: 0;margin-top: 0;position: relative;top: 15px;');
+							//$('td.DonationFieldControlCell').closest('span').attr('style', 'position: relative;top: 15px;');
+							
+							
 						}
 					},
 					// add custom text to donation by passing the text, lable and method. The label text must be an exact match
