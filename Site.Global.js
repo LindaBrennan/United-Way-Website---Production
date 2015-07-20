@@ -15,7 +15,7 @@ Added Fotorama image slider plugin
 Used in Annual Report microsite  photo essays
 
 EDIT: Yael Sprikut
-Date: July 16, 2015
+Date: July 20, 2015 (Production Environment)
 **********************************************/
 
 BBI = {
@@ -40,7 +40,6 @@ BBI = {
 			orderQuery: function() {
 				//get all the search value results and sort them alphabetically
 				var $queryTable = $(".BBDesignationSearchResult").text();
-				//console.log(queryTable);
 		
 				 var $queryTableArray = [];
 					//put all HTML elements into an array
@@ -64,8 +63,6 @@ BBI = {
 						}
 
 						var $sorted = $queryTableArray.sort(compare);
-					  //console.log($sorted);
-					 //console.log($queryTableArray);
 					 $(".BBDesignationSearchResult").remove();
 					 $(".BBDesignationSearchResultContainer").append($queryTableArray);			
 
@@ -84,7 +81,6 @@ BBI = {
 					});
 					$('.DesignPane').css("position", "relative");
 					//$('.DesignPane').addClass("DesignMenuTable");
-					//pane12_ctl01_tbdPartMenu
 				}
 			},
 			clone: {
@@ -247,28 +243,14 @@ BBI = {
 						// Do we have a donation form part on the page?
 						if ($('.DonationFormTable').length >= 1) {
 							// add a class to all mandatory tr
+							$('td.BBListingHeading').append('<hr class="underline" />');/*block element hr for headings yaelsprikut*/
 							$('td.DonationRequiredFieldMarker, td.DonationCaptureRequiredFieldMarker').closest('tr').addClass('hasRequired');
 							$('label[for$="DonationCapture1_AddressCtl_dd_StateUS"]').closest('tr').addClass('hasRequired'); //this changes the state class 						
 							$('span.DonationFormTable_DonationPanel_SymbolLabel').closest('tr').addClass('hasRequired');//this changes the amount class
 							$('label[for$="DonationCapture1_cboMonth"]').closest('tr').removeClass('DonationCaptureRequiredFieldMarker');
-							$('label[for$="PC3975_rdo_30_2"]').attr('style', 'width:350px;margin-left: 1.2rem;position: relative;bottom: 1rem;');
 							$('td.DonationFieldControlCell:first-child').attr('width', '300'); //expands the first td in the radio button donation cells yaelsprikut
 							$('input[id$="PC3975_txtAmount"]').attr('style', 'width: 78px');
-							$('input[id$="PC3975_rdo_30_2"]').attr('style', 'position: relative;top: 8px;');
-							if($(window).width() > 1000){
-								//alert("large screen");
-								$('td.DonationFieldControlCell:first-child').attr('width', '300'); //expands the first td in the radio button donation cells yaelsprikut
-							}else{
-								//alert("small screen");
-								$('td.DonationFieldControlCell:first-child').attr('width', '100'); //expands the first td in the radio button donation cells yaelsprikut
-							}
-							$('td.vaBottom').attr('width', '200'); //expands 'other' donation field yaelsprikut
-							
 
-							
-
-							//$('label[for$="DonationCapture1_cboMonth"]').closest('tr').addClass('hasRequiredNarrow');
-							//$('td.DonationCaptureFieldControlCell').closest('tr').addClass('hasRequired'); //this causes all the fields to be required but also changes state
 						}
 					},
 					// add custom text to donation by passing the text, lable and method. The label text must be an exact match
@@ -311,15 +293,6 @@ BBI = {
 						//Overiding forms that place a 'please select' option as first option
 						$('select[id$="571"] option:first').val(' ');
 						$('select[id$="571"] option:first').text(' ');
-						//Defaulting country selection to Canada
-						//$("select[id$='dd_Country'] option").removeAttr("selected");
-						//$("select[id$='dd_Country'] option[value='Canada']").attr("selected","selected");
-						//$("select[id$='dd_Country']").change();
-						//function blurEffect() {
-						//$('textarea[id$="AddressLine"]').blur();
-						//}
-						//var timeoutID = window.setTimeout(blurEffect, 500);
-						//Input long labels and style inputs
 						$('label[id$="571"]').before($('.leadershipDonorText').html());
 						$('input[id$="1563"]').closest('td').css('paddingTop', '50px');
 						$('label[id$="577"]').before($('.companyCampaign').html());
@@ -338,6 +311,8 @@ BBI = {
 					if ($('.EventTable').length >= 1) {
 						// add classes to make styling easy, please (added Required Field YS)
 						// table that contains prev and next buttons
+						$('td.BBListingHeading').append('<hr class="underline" />');/*block element hr for headings yaelsprikut*/
+						$('hr.underline').attr('style', 'position:relative; bottom:30px');
 						$('td.DonationCaptureFieldControlCell, td.DonationCaptureFieldCaption').closest('tr').addClass('hasRequired');
 						$('td.EventItemRegistrantControlCell').closest('tr').addClass('hasRequired');
 						//EventItemRegistrantSelectList
@@ -392,10 +367,6 @@ BBI = {
 					$('.main-menu').smartmenus();
 				}
 				$(".selected").removeAttr("href"); //this prevents the page for re-loading 
-				// Trigger click events to show selected menu items (mobile)
-				//$('#menubtn').click( function(){
-				// setTimeout(function(){ $('.smallnav .main-menu li.parent.selected:first a.has-submenu').click();}, 200);
-				//});
 				// Trigger client event to show selected menu items (left nav)
 				setTimeout(function() {
 					$('#leftnav ul li.parent.selected').children('a').click();
@@ -474,14 +445,7 @@ URI: https://github.com/chuckcarpenter/REM-unit-polyfill
 ---------------------------------------------------
 */	
 document.write('<script src="document.doc?id=20"></script>');
-/*
----------------------------------------------------
-Plugin Name: Fotorama
-Description: jQuery plug-in image slideshow with thumbnails
-URI: http://fotorama.io/
----------------------------------------------------
-*/
-document.write('<script src="document.doc?id=41"></script>');
+
 /*
 ---------------------------------------------------
 Plugin Name: Foundaiton 5 Accordion
