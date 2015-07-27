@@ -15,7 +15,7 @@ Added Fotorama image slider plugin
 Used in Annual Report microsite  photo essays
 
 EDIT: Yael Sprikut
-Date: July 20, 2015 (Production Environment)
+Date: July 27, 2015 (Production Environment)
 **********************************************/
 
 BBI = {
@@ -23,8 +23,6 @@ BBI = {
 		bbis: {
 			pageLoad: function() {},
 			paneRefresh: function() {
-				//BBI.UWT.bbis.orderQuery();
-				BBI.UWT.bbis.administration.fixAdminMenuPos(); 
 				BBI.UWT.bbis.foundation.overrideFoundation(); 
 				BBI.UWT.bbis.foundation.fixFoundation(); 
 				BBI.UWT.bbis.foundation.orbitSlideshow(); 
@@ -40,6 +38,7 @@ BBI = {
 			orderQuery: function() {
 				//get all the search value results and sort them alphabetically
 				var $queryTable = $(".BBDesignationSearchResult").text();
+				//console.log(queryTable);
 		
 				 var $queryTableArray = [];
 					//put all HTML elements into an array
@@ -63,24 +62,21 @@ BBI = {
 						}
 
 						var $sorted = $queryTableArray.sort(compare);
+					  //console.log($sorted);
+					 //console.log($queryTableArray);
 					 $(".BBDesignationSearchResult").remove();
 					 $(".BBDesignationSearchResultContainer").append($queryTableArray);			
 
 	
 			},
 			administration: {
-				// Fix positioning of the part menus
-				//this function seems to position the part menus in the corner of the webpage because it specifies the position as 0px for both top and left 
+				// Fix positioning of the part menus 
 				fixAdminMenuPos: function() {
-					$('div[id *= "_panelPopup"]').appendTo('body');
-					//document.getElementById("pane11_ctl01_panelPopup").remove();
-					$("tr.pane11_ctl01_trInsertAfter").removeAttr(".donatebtn a");
-					$('div[id *= "_designPaneCloak"]').css({
-						"top": "0px",
-						"left": "0px"
-					});
-					$('.DesignPane').css("position", "relative");
-					//$('.DesignPane').addClass("DesignMenuTable");
+					$('div[id *= "pane18_ctl01_panelPopup"]').appendTo('footer');
+					$('div[id *= "pane19_ctl01_panelPopup"]').appendTo('footer');
+					$('div[id *= "pane20_ctl01_panelPopup"]').appendTo('footer');
+					$('div[id *= "pane21_ctl01_panelPopup"]').appendTo('footer');
+					
 				}
 			},
 			clone: {
@@ -250,6 +246,12 @@ BBI = {
 							$('label[for$="DonationCapture1_cboMonth"]').closest('tr').removeClass('DonationCaptureRequiredFieldMarker');
 							$('td.DonationFieldControlCell:first-child').attr('width', '300'); //expands the first td in the radio button donation cells yaelsprikut
 							$('input[id$="PC3975_txtAmount"]').attr('style', 'width: 78px');
+							
+							//attach new image to security code png
+							var oldSrc = 'images/help-32_1.gif';
+							var newSrc = 'https://www.unitedwaytyr.com/image/mainwebsite/x_common/logos-and-icons/Question-mark-Icon-2.png';
+							$('img[src="' + oldSrc + '"]').attr('src', newSrc);
+							$('img[src="' + newSrc + '"]').attr('style', 'padding-top: 5px;border: 0;');
 
 						}
 					},
@@ -367,7 +369,7 @@ BBI = {
 					$('.main-menu').smartmenus();
 				}
 				$(".selected").removeAttr("href"); //this prevents the page for re-loading 
-				// Trigger client event to show selected menu items (left nav)
+
 				setTimeout(function() {
 					$('#leftnav ul li.parent.selected').children('a').click();
 				}, 200);
