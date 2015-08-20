@@ -15,7 +15,7 @@ Added Fotorama image slider plugin
 Used in Annual Report microsite  photo essays
 
 EDIT: Yael Sprikut
-Date: July 27, 2015 (Production Environment)
+Date: August 20, 2015 (Production Environment)
 **********************************************/
 
 BBI = {
@@ -23,6 +23,10 @@ BBI = {
 		bbis: {
 			pageLoad: function() {},
 			paneRefresh: function() {
+				//BBI.UWT.bbis.orderQuery();
+				BBI.UWT.bbis.siteMap();
+				BBI.UWT.bbis.commPreference();
+				BBI.UWT.bbis.administration.fixAdminMenuPos(); 
 				BBI.UWT.bbis.foundation.overrideFoundation(); 
 				BBI.UWT.bbis.foundation.fixFoundation(); 
 				BBI.UWT.bbis.foundation.orbitSlideshow(); 
@@ -31,9 +35,20 @@ BBI = {
 				BBI.UWT.bbis.parts.donationForm.init();
 				BBI.UWT.bbis.parts.showPartTitle();
 				BBI.UWT.bbis.parts.eventRegistration();
-				BBI.UWT.bbis.parts.documents();
+				BBI.UWT.bbis.parts.documents(); //responsible for the news release part 
 				BBI.UWT.bbis.smartMenus();
 				BBI.UWT.bbis.clone.sidebar();				
+			},
+
+			siteMap: function() {
+				//append Full Menu part to body
+				var $siteMapURL = location.pathname;
+				if ($siteMapURL == '/site-map'){
+					//alert("You are in site map!");
+					$('#landingcontent ul, #landingcontent li').removeClass();
+
+				}
+				
 			},
 			orderQuery: function() {
 				//get all the search value results and sort them alphabetically
@@ -43,7 +58,7 @@ BBI = {
 				 var $queryTableArray = [];
 					//put all HTML elements into an array
 					 (function(){
-						 var $queryTable = $(".BBDesignationSearchResult");
+						 var $queryTable = $(".BBDesignationSearchResult");//this will affect the CSV container part
 						 for (var i = 0; i < $queryTable.length; i++) {
 							 $queryTableArray.push($queryTable[i].innerText + "<br><br>");
 						 }
@@ -69,13 +84,38 @@ BBI = {
 
 	
 			},
+			commPreference: function() {
+				//hide Global Opt Out 
+				$('div[id *= "S1_GLOBALOPTOUTPREFERENCE_commPrefs_cont"]').hide();
+				$('input[id$="S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_cbOptIn_0"]').attr('style', '-webkit-transform: scale(2)');
+				$('div[id$="header"]').attr('style', 'padding-bottom: 30px; font-weight:bold');
+				
+				//check General checkbox if unchecked
+				if($("#S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_cbOptIn_0").prop('checked') == false){
+					document.getElementById("S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_cbOptIn_0").checked = true;
+				}
+				
+			},
 			administration: {
 				// Fix positioning of the part menus 
 				fixAdminMenuPos: function() {
+					
+					$('div[id *= "_panelPopup"]').appendTo('body');
+					//$("tr.pane11_ctl01_trInsertAfter").removeAttr(".donatebtn a");
+					$('div[id *= "_designPaneCloak"]').css({
+						"top": "0px",
+						"left": "0px"
+					});
+					$('.DesignPane').css("position", "relative");
+					//$('.DesignPane').addClass("DesignMenuTable");
+					//pane12_ctl01_tbdPartMenu	
+					
+					/*
 					$('div[id *= "pane18_ctl01_panelPopup"]').appendTo('footer');
 					$('div[id *= "pane19_ctl01_panelPopup"]').appendTo('footer');
 					$('div[id *= "pane20_ctl01_panelPopup"]').appendTo('footer');
 					$('div[id *= "pane21_ctl01_panelPopup"]').appendTo('footer');
+					*/
 					
 				}
 			},
@@ -246,13 +286,18 @@ BBI = {
 							$('label[for$="DonationCapture1_cboMonth"]').closest('tr').removeClass('DonationCaptureRequiredFieldMarker');
 							$('td.DonationFieldControlCell:first-child').attr('width', '300'); //expands the first td in the radio button donation cells yaelsprikut
 							$('input[id$="PC3975_txtAmount"]').attr('style', 'width: 78px');
-							
+							$('input[id$="PC4143_txtAmount"]').attr('style', 'width: 100px');
+							var $wggURL = location.pathname;
+							if ($wggURL == '/wggdonate'){								
+									$('td.vaBottom').attr('style', 'color:black');
+								}							
 							//attach new image to security code png
 							var oldSrc = 'images/help-32_1.gif';
-							var newSrc = 'https://www.unitedwaytyr.com/image/mainwebsite/x_common/logos-and-icons/Question-mark-Icon-2.png';
+							var newSrc = 'https://test.unitedwaytoronto.org/image/mainwebsite/x_common/logos-and-icons/Question-mark-Icon-2.png';
 							$('img[src="' + oldSrc + '"]').attr('src', newSrc);
 							$('img[src="' + newSrc + '"]').attr('style', 'padding-top: 5px;border: 0;');
-
+							
+							//$('label[for$="DonationCapture1_cboMonth"]').closest('tr').addClass('hasRequiredNarrow');
 						}
 					},
 					// add custom text to donation by passing the text, lable and method. The label text must be an exact match
@@ -295,6 +340,15 @@ BBI = {
 						//Overiding forms that place a 'please select' option as first option
 						$('select[id$="571"] option:first').val(' ');
 						$('select[id$="571"] option:first').text(' ');
+						//Defaulting country selection to Canada
+						//$("select[id$='dd_Country'] option").removeAttr("selected");
+						//$("select[id$='dd_Country'] option[value='Canada']").attr("selected","selected");
+						//$("select[id$='dd_Country']").change();
+						//function blurEffect() {
+						//$('textarea[id$="AddressLine"]').blur();
+						//}
+						//var timeoutID = window.setTimeout(blurEffect, 500);
+						//Input long labels and style inputs
 						$('label[id$="571"]').before($('.leadershipDonorText').html());
 						$('input[id$="1563"]').closest('td').css('paddingTop', '50px');
 						$('label[id$="577"]').before($('.companyCampaign').html());
@@ -322,6 +376,12 @@ BBI = {
 						//DonationCaptureFieldControlCellAmount remove required over the amount 
 						$('td.DonationCaptureFieldControlCellAmount').closest('tr').removeClass('hasRequired');
 						$('.EventTable .BBFormSubmitButton').parent().closest('table').addClass('buttonsTable');
+						
+						//attach new image to security code png
+							var oldSrc = 'images/help-32_1.gif';
+							var newSrc = 'https://test.unitedwaytoronto.org/image/mainwebsite/x_common/logos-and-icons/Question-mark-Icon-2.png';
+							$('img[src="' + oldSrc + '"]').attr('src', newSrc);
+							$('img[src="' + newSrc + '"]').attr('style', 'padding-top: 5px;border: 0;');
 					}
 				},
 				// modify the quick search part
@@ -339,12 +399,6 @@ BBI = {
 							 $('input,textarea').blur(function(){
    							 $('.QuickSearchTextbox').attr('placeholder', 'Search');
 							 });
-							
-							
-							
-							// $('input,textarea').blur(function(){
-   							// $(this).attr('placeholder');
-							// });
 						
 						$('table.QuickSearchFormTable').attr('cellspacing', '0');
 					}
@@ -369,7 +423,11 @@ BBI = {
 					$('.main-menu').smartmenus();
 				}
 				$(".selected").removeAttr("href"); //this prevents the page for re-loading 
-
+				// Trigger click events to show selected menu items (mobile)
+				//$('#menubtn').click( function(){
+				// setTimeout(function(){ $('.smallnav .main-menu li.parent.selected:first a.has-submenu').click();}, 200);
+				//});
+				// Trigger client event to show selected menu items (left nav)
 				setTimeout(function() {
 					$('#leftnav ul li.parent.selected').children('a').click();
 				}, 200);
