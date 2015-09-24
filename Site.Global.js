@@ -15,7 +15,7 @@ Added Fotorama image slider plugin
 Used in Annual Report microsite  photo essays
 
 EDIT: Yael Sprikut
-Update Date: August 31, 2015 (Production Environment)
+Date: September 17, 2015 (Production Environment)
 **********************************************/
 
 BBI = {
@@ -92,9 +92,9 @@ BBI = {
 				$('div[id$="header"]').attr('style', 'padding-bottom: 30px; font-weight:bold');
 				
 				//check General checkbox if unchecked
-				if($("#S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_cbOptIn_0").prop('checked') == false){
-					document.getElementById("S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_cbOptIn_0").checked = true;
-				}
+				// if($("#S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_cbOptIn_0").prop('checked') == false){
+					// document.getElementById("S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_cbOptIn_0").checked = true;
+				// }
 				
 				$(window).resize(function(){
 					if ($(window).width() <= 800){	
@@ -166,9 +166,6 @@ BBI = {
 							$('<div class="show-for-small-only small-12 columns cloned">' + html + '</div>').appendTo(dropSpot);
 						});
 					}
-					var n = $(".cloned").length;
-					console.log(n);
-
 				}
 			},
 			foundation: {
@@ -293,9 +290,9 @@ BBI = {
 						$('.BBDocumentFormTable').addClass('complete');	
 
 						//place for the document update timestamp	
-						// var timestamp = document.createElement("label");
-						// timestamp.textContent = "Last updated: " + document.lastModified;
-						// $('.BBDocumentFormTable').append(timestamp);
+						var timestamp = document.createElement("label");
+						timestamp.textContent = "Last updated: " + document.lastModified;
+						$('.BBDocumentFormTable').append(timestamp);
 					}
 				},
 				// modify donation form
@@ -331,11 +328,11 @@ BBI = {
 							}
 							//attach new image to security code png
 							var oldSrc = 'images/help-32_1.gif';
-							var newSrc = 'http://test.unitedwaytoronto.org/image/mainwebsite/x_common/logos-and-icons/Question-mark-Icon-2.png';
+							var newSrc = 'image/mainwebsite/x_common/logos-and-icons/Question-mark-Icon-2.png';
 							$('img[src="' + oldSrc + '"]').attr('src', newSrc);
 							$('img[src="' + newSrc + '"]').attr('style', 'padding-top: 5px;border: 0;');
 							
-							//$('label[for$="DonationCapture1_cboMonth"]').closest('tr').addClass('hasRequiredNarrow');
+							$('label[for$="DonationCapture1_cboMonth"]').closest('tr').addClass('hasRequiredNarrow');
 						}
 					},
 					// add custom text to donation by passing the text, lable and method. The label text must be an exact match
@@ -417,12 +414,9 @@ BBI = {
 						
 						//attach new image to security code png
 							var oldSrc = 'images/help-32_1.gif';
-							var newSrc = 'https://test.unitedwaytoronto.org/image/mainwebsite/x_common/logos-and-icons/Question-mark-Icon-2.png';
+							var newSrc = 'image/mainwebsite/x_common/logos-and-icons/Question-mark-Icon-2.png';
 							$('img[src="' + oldSrc + '"]').attr('src', newSrc);
 							$('img[src="' + newSrc + '"]').attr('style', 'padding-top: 5px;border: 0;');
-							
-						//attach note to e-mail
-						$('input[id$="PC4124_Wizard1_DonationCapture1_txtEmail"]').after('<small>*Thanks for providing your email address. We need it to confirm your registration and send you final details for the event.</small>');
 					}
 				},
 				// modify the quick search part
