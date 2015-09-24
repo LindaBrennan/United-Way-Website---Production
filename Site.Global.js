@@ -15,7 +15,7 @@ Added Fotorama image slider plugin
 Used in Annual Report microsite  photo essays
 
 EDIT: Yael Sprikut
-Date: August 26, 2015 (Test Environment)
+Update Date: August 31, 2015 (Production Environment)
 **********************************************/
 
 BBI = {
@@ -166,6 +166,9 @@ BBI = {
 							$('<div class="show-for-small-only small-12 columns cloned">' + html + '</div>').appendTo(dropSpot);
 						});
 					}
+					var n = $(".cloned").length;
+					console.log(n);
+
 				}
 			},
 			foundation: {
@@ -290,9 +293,9 @@ BBI = {
 						$('.BBDocumentFormTable').addClass('complete');	
 
 						//place for the document update timestamp	
-						var timestamp = document.createElement("label");
-						timestamp.textContent = "Last updated: " + document.lastModified;
-						$('.BBDocumentFormTable').append(timestamp);
+						// var timestamp = document.createElement("label");
+						// timestamp.textContent = "Last updated: " + document.lastModified;
+						// $('.BBDocumentFormTable').append(timestamp);
 					}
 				},
 				// modify donation form
@@ -417,6 +420,9 @@ BBI = {
 							var newSrc = 'https://test.unitedwaytoronto.org/image/mainwebsite/x_common/logos-and-icons/Question-mark-Icon-2.png';
 							$('img[src="' + oldSrc + '"]').attr('src', newSrc);
 							$('img[src="' + newSrc + '"]').attr('style', 'padding-top: 5px;border: 0;');
+							
+						//attach note to e-mail
+						$('input[id$="PC4124_Wizard1_DonationCapture1_txtEmail"]').after('<small>*Thanks for providing your email address. We need it to confirm your registration and send you final details for the event.</small>');
 					}
 				},
 				// modify the quick search part
