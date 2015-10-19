@@ -15,7 +15,7 @@ Added Fotorama image slider plugin
 Used in Annual Report microsite  photo essays
 
 EDIT: Yael Sprikut
-Date: September 17, 2015 (Production Environment)
+Date: October 19, 2015 (Production Environment)
 **********************************************/
 
 BBI = {
@@ -87,7 +87,7 @@ BBI = {
 			commPreference: function() {
 				//hide Global Opt Out 
 				$('div[id *= "S1_GLOBALOPTOUTPREFERENCE_commPrefs_cont"]').hide();
-				$('input[id$="S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_cbOptIn_0"]').attr('style', '-webkit-transform: scale(2); -ms-transform: scale(2);-moz-transform: scale(2);');
+				$('input[id$="S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_cbOptIn_0"]').attr('style', '-webkit-transform: scale(2); -ms-transform: scale(2);-moz-transform: scale(2); position:relative; bottom:10px');
 				$('input[id$="S1_APPEALPREFERENCE_M_600ed16ef3594bdf89d8f6b3b2bd5329_commPrefs_rptPrefs_cbOptIn_0"]').attr('style', '-webkit-transform: scale(2); -ms-transform: scale(2);-moz-transform: scale(2);');
 				$('div[id$="header"]').attr('style', 'padding-bottom: 30px; font-weight:bold');
 				
@@ -108,7 +108,7 @@ BBI = {
 						$labelB = $('select[id$="S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_ddDeliveryMethod_0"]');
 						$submitBtn = $('input[id$="PC4005_ctl00_L_F1_W_finishWizardButton"]');
 						
-						$labelA.attr('style','position: relative;right: 25px;font-weight: bold;font-size: 13pt;');
+						$labelA.attr('style','position: relative;right: 25px;font-weight: bold;font-size: 13pt;bottom:10px');
 						$labelB.attr('style','position: relative;top: 35px;right: 402px;width: 120%;');
 						$submitBtn.attr('style', 'position: relative; top: 20px; right: 400px;font-size: large;');
 						
