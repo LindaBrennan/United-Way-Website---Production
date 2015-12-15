@@ -15,7 +15,7 @@ Added Fotorama image slider plugin
 Used in Annual Report microsite  photo essays
 
 EDIT: Yael Sprikut
-Date: October 19, 2015 (Production Environment)
+Date: November 5, 2015 (Production Environment)
 **********************************************/
 
 BBI = {
@@ -87,14 +87,14 @@ BBI = {
 			commPreference: function() {
 				//hide Global Opt Out 
 				$('div[id *= "S1_GLOBALOPTOUTPREFERENCE_commPrefs_cont"]').hide();
-				$('input[id$="S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_cbOptIn_0"]').attr('style', '-webkit-transform: scale(2); -ms-transform: scale(2);-moz-transform: scale(2); position:relative; bottom:10px');
+				$('input[id$="S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_cbOptIn_0"]').attr('style', '-webkit-transform: scale(2); -ms-transform: scale(2);-moz-transform: scale(2); position:relative; bottom:3px');
 				$('input[id$="S1_APPEALPREFERENCE_M_600ed16ef3594bdf89d8f6b3b2bd5329_commPrefs_rptPrefs_cbOptIn_0"]').attr('style', '-webkit-transform: scale(2); -ms-transform: scale(2);-moz-transform: scale(2);');
 				$('div[id$="header"]').attr('style', 'padding-bottom: 30px; font-weight:bold');
 				
 				//check General checkbox if unchecked
-				// if($("#S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_cbOptIn_0").prop('checked') == false){
-					// document.getElementById("S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_cbOptIn_0").checked = true;
-				// }
+				 if($("#S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_cbOptIn_0").prop('checked') == false){
+					 document.getElementById("S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_cbOptIn_0").checked = true;
+				 }
 				
 				$(window).resize(function(){
 					if ($(window).width() <= 800){	
