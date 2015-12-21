@@ -6631,10 +6631,10 @@ ul.alphalist li a:hover, ul.alphalist li a:focus, ul.alphalist li a:active {
 
 /*Improve spacing of unordered lists*/
 ul {
-  line-height:1.3rem;
+  /* line-height:1.3rem; */
 }
 li {
-  margin-bottom:1.3rem;
+  /* margin-bottom:1.3rem; */
 }
 
 /*--END CROSS-SITE STYLES--*/
