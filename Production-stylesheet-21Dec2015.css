@@ -16,7 +16,7 @@
       DONATION FORM CUSTOMIZATION - TAX CALCULATION      
       MEDIA QUERY TO FIX SMALL THINGS 
       ORBIT SLIDESHOW
-      ACCORDION STYLES   	  
+      ACCORDION STYLES      
 5. TinyMCE specific fixes to Foundation show/hide styles for BBIS
 6. Annual Report microsite styles
 7. Warmest Wishes Styles 
@@ -4011,7 +4011,7 @@ form .row textarea.columns {
 /* Label Styles */
 label {
   font-size: 0.875rem;
-  color: #4d4d4d;
+  color: #222;
   cursor: pointer;
   display: block;
   font-weight: normal;
@@ -5407,7 +5407,7 @@ table.SearchTable tr.SearchOddRowStyle td.BBSearchDescriptionStyle {
 .DonationFormTable .BBFormRequiredFieldMarker, .DonationFormTable .DonationRequiredFieldMarker, .DonationFormTable .DonationCaptureRequiredFieldMarker td:first-child:after{
 //display:none;
 //
-
+font-size: 1.3em;
 //content: 'Required field';
 //font-size: 70%;  
 //vertical-align: top;  
@@ -6079,6 +6079,7 @@ table[id*="tblMain"].EventTable {
 /*Move the mandatory asterisks up*/
 .EventTable .BBFormRequiredFieldMarker {
  display:inline;
+ /* font-size: 1.3em; */
 }
 /*Add space under the amount in Step 3*/
 .EventTable tr[id$="DonationCapture1_trAmount"] td.BBFieldCaption,
@@ -6422,7 +6423,7 @@ h2.red-background {
 h3 {
   font-size:1.1rem;
   font-weight:bold;
-  color:#777;
+  color:#555;
   line-height:1.3rem;
 }
 p.darkbluetext {
@@ -6628,7 +6629,13 @@ ul.alphalist li a:hover, ul.alphalist li a:focus, ul.alphalist li a:active {
   background-color:#ddd;
 }
 
-
+/*Improve spacing of unordered lists*/
+ul {
+  line-height:1.3rem;
+}
+li {
+  margin-bottom:1.3rem;
+}
 
 /*--END CROSS-SITE STYLES--*/
 
@@ -7469,14 +7476,14 @@ ul.socmed li {
 #footer2  {
   background-color:#54585a;
   padding-bottom:1rem;
-  color:#a9abac;
+  color:#fff;
 }
 #footer2 ul {
   padding-left:0;
 }
 #footer2 a {
   text-decoration:none;
-  color:#a9abac;
+  color:#fff;
   font-size:0.8rem;
 }
 #footer2 a:hover, #footer2 a:focus, #footer2 a:active {
@@ -7485,7 +7492,7 @@ ul.socmed li {
 }
 #footer2 a:visited {
   text-decoration:none;
-  color:#a9abac;
+  color:#fff;
 }
 #footer2 a:visited:hover, #footer2 a:visited:focus, #footer2 a:visited:active {
   text-decoration:none;
@@ -7895,7 +7902,7 @@ span.exec-title {
   line-height:1rem;
   font-size:1.0rem;
   font-weight:bold;
-  color:#797979;
+  color:#555;
   margin-bottom:0.5rem;
 }
 .sidebar-list ul {
@@ -8854,7 +8861,6 @@ a.orbit-prev, a.orbit-prev:visited, a.orbit-next, a.orbit-next:visited {
   }
 
 /*-----------END 6. Annual Report microsite styles-----------*/
-
 /*-----------7. Warmest Wishes Styles -----------*/
  img.spacing{
     position: relative; 
