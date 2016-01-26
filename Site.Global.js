@@ -15,7 +15,7 @@ Added Fotorama image slider plugin
 Used in Annual Report microsite  photo essays
 
 EDIT: Yael Sprikut
-Date: November 5, 2015 (Production Environment)
+Date: January 26, 2016 (Production Environment)
 **********************************************/
 
 BBI = {
@@ -107,10 +107,14 @@ BBI = {
 						$labelA = $('label[for$="S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_cbOptIn_0"]');
 						$labelB = $('select[id$="S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_ddDeliveryMethod_0"]');
 						$submitBtn = $('input[id$="PC4005_ctl00_L_F1_W_finishWizardButton"]');
+						$submitBtnThree = $('input[id$="PC4486_ctl00_L_F1_W_finishWizardButton"]');
+						$submitBtnFour = $('input[id$="PC4397_ctl00_L_F1_W_finishWizardButton"]');
 						
 						$labelA.attr('style','position: relative;right: 25px;font-weight: bold;font-size: 13pt;bottom:10px');
 						$labelB.attr('style','position: relative;top: 35px;right: 402px;width: 120%;');
 						$submitBtn.attr('style', 'position: relative; top: 20px; right: 400px;font-size: large;');
+						$submitBtnThree.attr('style', 'position: relative; top: 20px; right: 400px;font-size: large;');
+						$submitBtnFour.attr('style', 'position: relative; top: 20px; right: 400px;font-size: large;');
 						
 						//DM comm preference
 						$labelC = $('label[for$="S1_APPEALPREFERENCE_M_600ed16ef3594bdf89d8f6b3b2bd5329_commPrefs_rptPrefs_cbOptIn_0"]');
@@ -213,6 +217,10 @@ BBI = {
 					// run obrbit with our jquery no-conflict eg., $$
 					if ($$('#slideshow ul li img').length > 0) {
 						Foundation.libs.orbit.init();
+						$nextSlide = $('#slideshow span').addClass("ThisClass");
+						$prevSlide = $('span.ThisClass').text('Next Slide');
+
+
 					}
 					// trigger resize event forcing orbit to recalculate
 					$(window).triggerHandler('resize');
@@ -316,7 +324,10 @@ BBI = {
 							$('label[for$="DonationCapture1_AddressCtl_dd_StateUS"]').closest('tr').addClass('hasRequired'); //this changes the state class 						
 							$('span.DonationFormTable_DonationPanel_SymbolLabel').closest('tr').addClass('hasRequired');//this changes the amount class
 							$('label[for$="DonationCapture1_cboMonth"]').closest('tr').removeClass('DonationCaptureRequiredFieldMarker');
-							$('td.DonationFieldControlCell:first-child').attr('width', '300'); //expands the first td in the radio button donation cells yaelsprikut
+							var $wggurl = location.pathname;
+							if ($wggurl == '/wggdonate'){
+								$('td.DonationFieldControlCell:first-child').attr('width', '300'); //expands the first td in the radio button donation cells yaelsprikut
+								}
 							$('input[id$="PC3975_txtAmount"]').attr('style', 'width: 78px');
 							$('input[id$="PC4143_txtAmount"]').attr('style', 'width: 100px');
 							var $URL = location.pathname;
