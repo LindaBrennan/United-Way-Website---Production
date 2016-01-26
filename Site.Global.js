@@ -15,7 +15,7 @@ Added Fotorama image slider plugin
 Used in Annual Report microsite  photo essays
 
 EDIT: Yael Sprikut
-Date: January 26, 2016 (Production Environment)
+Date: January 21, 2016 (Production Environment)
 **********************************************/
 
 BBI = {
@@ -178,7 +178,7 @@ BBI = {
 					// Add html5 elm
 					$('.smallnav').wrap('<aside class="left-off-canvas-menu show-for-medium-down"></aside>');
 					// Add off-canvase close
-					$('<a class="exit-off-canvas"></a>').insertAfter($('#footer2'));
+					$('<a name="use_mobile_menu" href="#" class="exit-off-canvas"><span style="display:none">menu</span></a>').insertAfter($('#footer2'));
 					// trigger off-canvas
 					$('#menubtn, .exit-off-canvas').click(function() {
 						// Toggle css class to display the menu
