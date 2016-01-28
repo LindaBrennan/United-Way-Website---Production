@@ -15,7 +15,7 @@ Added Fotorama image slider plugin
 Used in Annual Report microsite  photo essays
 
 EDIT: Yael Sprikut
-Date: January 21, 2016 (Production Environment)
+Date: January 29, 2016 (Production Environment)
 **********************************************/
 
 BBI = {
@@ -324,10 +324,6 @@ BBI = {
 							$('label[for$="DonationCapture1_AddressCtl_dd_StateUS"]').closest('tr').addClass('hasRequired'); //this changes the state class 						
 							$('span.DonationFormTable_DonationPanel_SymbolLabel').closest('tr').addClass('hasRequired');//this changes the amount class
 							$('label[for$="DonationCapture1_cboMonth"]').closest('tr').removeClass('DonationCaptureRequiredFieldMarker');
-							var $wggurl = location.pathname;
-							if ($wggurl == '/wggdonate'){
-								$('td.DonationFieldControlCell:first-child').attr('width', '300'); //expands the first td in the radio button donation cells yaelsprikut
-								}
 							$('input[id$="PC3975_txtAmount"]').attr('style', 'width: 78px');
 							$('input[id$="PC4143_txtAmount"]').attr('style', 'width: 100px');
 							var $URL = location.pathname;

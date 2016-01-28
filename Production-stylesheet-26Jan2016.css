@@ -4017,7 +4017,7 @@ label {
   font-size: 0.875rem;
   color: #222;
   cursor: pointer;
-  display: block;
+  display: inline; /* used to be block */
   font-weight: normal;
   margin-bottom: 0.5rem;
   width:100%;
@@ -4301,7 +4301,7 @@ select {
 input[type="checkbox"] + label,
 input[type="radio"] + label {
 
-  display: inline-block;
+  /* display: inline-block; */
   margin-left: 0.5rem;
   margin-right: 1rem;
   vertical-align: baseline;
