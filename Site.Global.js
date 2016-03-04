@@ -15,7 +15,7 @@ Added Fotorama image slider plugin
 Used in Annual Report microsite  photo essays
 
 EDIT: Yael Sprikut
-Date: January 29, 2016 (Production Environment)
+Date: March 4, 2016 (Production Environment)
 **********************************************/
 
 BBI = {
@@ -85,51 +85,24 @@ BBI = {
 	
 			},
 			commPreference: function() {
-				//hide Global Opt Out 
-				$('div[id *= "S1_GLOBALOPTOUTPREFERENCE_commPrefs_cont"]').hide();
-				$('input[id$="S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_cbOptIn_0"]').attr('style', '-webkit-transform: scale(2); -ms-transform: scale(2);-moz-transform: scale(2); position:relative; bottom:3px');
-				$('input[id$="S1_APPEALPREFERENCE_M_600ed16ef3594bdf89d8f6b3b2bd5329_commPrefs_rptPrefs_cbOptIn_0"]').attr('style', '-webkit-transform: scale(2); -ms-transform: scale(2);-moz-transform: scale(2);');
-				$('div[id$="header"]').attr('style', 'padding-bottom: 30px; font-weight:bold');
-				
-				//check General checkbox if unchecked
-				 if($("#S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_cbOptIn_0").prop('checked') == false){
-					 document.getElementById("S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_cbOptIn_0").checked = true;
-				 }
-				
+				//hide Global opt out for all except YSS
+				if(location.pathname !== '/x_common/communication-preference-form/yss-communications-preference-form'){
+						$('div[id$="S1_GLOBALOPTOUTPREFERENCE_commPrefs_cont"]').hide();
+				}
+				//mobile view
 				$(window).resize(function(){
 					if ($(window).width() <= 800){	
-						//$('div[id$="Column1Div"]').remove();
-						$unsubscribeMe = $('span[id *= "S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_lblCommunication"]');
-						$yourAddress = $('span[id *= "S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_lblSendTo"]');
-						$unsubscribeMe.hide();
-						$yourAddress.hide();
+						//increase checkbox size for mobile
+						$globalCheckBox = $('input.hidden-field'); 
+						$globalCheckBox.attr('style', '-webkit-transform: scale(2); -ms-transform: scale(2);-moz-transform: scale(2);');
 						
-						$labelA = $('label[for$="S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_cbOptIn_0"]');
-						$labelB = $('select[id$="S1_GENERALCORRESPONDENCE_commPrefs_rptPrefs_ddDeliveryMethod_0"]');
-						$submitBtn = $('input[id$="PC4005_ctl00_L_F1_W_finishWizardButton"]');
-						$submitBtnThree = $('input[id$="PC4486_ctl00_L_F1_W_finishWizardButton"]');
-						$submitBtnFour = $('input[id$="PC4397_ctl00_L_F1_W_finishWizardButton"]');
-						
-						$labelA.attr('style','position: relative;right: 25px;font-weight: bold;font-size: 13pt;bottom:10px');
-						$labelB.attr('style','position: relative;top: 35px;right: 402px;width: 120%;');
-						$submitBtn.attr('style', 'position: relative; top: 20px; right: 400px;font-size: large;');
-						$submitBtnThree.attr('style', 'position: relative; top: 20px; right: 400px;font-size: large;');
-						$submitBtnFour.attr('style', 'position: relative; top: 20px; right: 400px;font-size: large;');
-						
-						//DM comm preference
-						$labelC = $('label[for$="S1_APPEALPREFERENCE_M_600ed16ef3594bdf89d8f6b3b2bd5329_commPrefs_rptPrefs_cbOptIn_0"]');
-						$labelD = $('select[id$="S1_APPEALPREFERENCE_M_600ed16ef3594bdf89d8f6b3b2bd5329_commPrefs_rptPrefs_ddDeliveryMethod_0"]');
-						$submitBtnTwo = $('input[id$="PC4057_ctl00_L_F1_W_finishWizardButton"]');
-						
-						$labelC.attr('style','position: relative;right: 25px;font-weight: bold;font-size: 13pt;');
-						$labelD.attr('style','position: relative;top: 35px;right: 402px;width: 120%;');
-						$submitBtnTwo.attr('style', 'position: relative; top: 20px; right: 400px;font-size: large;');
-						var linebreak = document.createElement("br");
-						$('.bbformbuilder-form-part').append(linebreak);
-						
-						
+						//adjust label position
+						$select = $('select[id *="_rptPrefs_"]').hide();
+						$submitButton = $('div.BBSequenceMapNavigationContainer').attr('style', 'position:relative; right:400px;')
+					
 					}	
 				});
+
 				
 			},
 			administration: {
@@ -145,13 +118,6 @@ BBI = {
 					$('.DesignPane').css("position", "relative");
 					//$('.DesignPane').addClass("DesignMenuTable");
 					//pane12_ctl01_tbdPartMenu	
-					
-					/*
-					$('div[id *= "pane18_ctl01_panelPopup"]').appendTo('footer');
-					$('div[id *= "pane19_ctl01_panelPopup"]').appendTo('footer');
-					$('div[id *= "pane20_ctl01_panelPopup"]').appendTo('footer');
-					$('div[id *= "pane21_ctl01_panelPopup"]').appendTo('footer');
-					*/
 					
 				}
 			},
