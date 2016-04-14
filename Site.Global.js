@@ -30,7 +30,6 @@ BBI = {
 				BBI.UWT.bbis.foundation.overrideFoundation(); 
 				BBI.UWT.bbis.foundation.fixFoundation(); 
 				BBI.UWT.bbis.foundation.orbitSlideshow(); 
-				BBI.UWT.bbis.foundation.FoundationAccordion();
 				BBI.UWT.bbis.parts.quickSearch();
 				BBI.UWT.bbis.parts.donationForm.init();
 				BBI.UWT.bbis.parts.showPartTitle();
@@ -97,7 +96,7 @@ BBI = {
 						$globalCheckBox.attr('style', '-webkit-transform: scale(2); -ms-transform: scale(2);-moz-transform: scale(2);');
 						
 						//adjust label position
-						$select = $('select[id *="_rptPrefs_"]').hide();
+						//$select = $('select[id *="_rptPrefs_"]').hide();
 						$submitButton = $('div.BBSequenceMapNavigationContainer').attr('style', 'position:relative; right:400px;')
 					
 					}	
@@ -191,24 +190,7 @@ BBI = {
 					// trigger resize event forcing orbit to recalculate
 					$(window).triggerHandler('resize');
 				},
-				// make an Accordion
-				FoundationAccordion: function() {
-
-					
-					$(document).foundation({
-					  accordion: {
-					    // specify the class used for active (or open) accordion panels
-					    active_class: 'active',
-					    // allow multiple accordion panels to be active at the same time
-					    multi_expand: false,
-					    // allow accordion panels to be closed by clicking on their headers
-					    // setting to false only closes accordion panels when another is opened
-					    toggleable: true
-						
-					  }
-					});
-
-				},
+				
 				// Remove foundation classes in edit view
 				overrideFoundation: function() {
 					if (window.location.href.match('templatedesigner') || window.location.href.match('pagedesign')) {
@@ -394,6 +376,8 @@ BBI = {
 				},
 				// modify the quick search part
 				quickSearch: function() {
+					//eliminate all spaces in membership directory
+					$( "li:contains('NA')" ).css( "display", "none" );
 					// Do we have a quick serach part on the page?
 					if ($('.QuickSearchFormTable').length >= 1) {
 						
