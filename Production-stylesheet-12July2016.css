@@ -5828,6 +5828,8 @@ a.BBLinkHelpIcon {
 
 /*/*EVENT REGISTRATION PART*/
 
+/* button reposition for mobile */
+
 /*Increase width of whole table*/
 table[id*="tblMain"].EventTable {
   width:100%;
@@ -6178,6 +6180,13 @@ table[id*="tblMain"].EventTable {
 
 /*Changes to Events form for phones*/
 @media(max-width: 480px) {
+
+/* button reposition for mobile */
+
+#PC7163_Wizard1_StepNavigationTemplateContainerID_BBButton3{
+	position:relative;
+	right: 2em;
+}
 
   /*Hide the steps table*/
   .EventTable table[id$="tblProgress"] {

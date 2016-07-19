@@ -15,7 +15,7 @@ Added Fotorama image slider plugin
 Used in Annual Report microsite  photo essays
 
 EDIT: Yael Sprikut
-Date: March 4, 2016 (Production Environment)
+Date: July 19, 2016 (Production Environment)
 **********************************************/
 
 BBI = {
@@ -372,6 +372,9 @@ BBI = {
 							var newSrc = 'image/mainwebsite/x_common/logos-and-icons/Question-mark-Icon-2.png';
 							$('img[src="' + oldSrc + '"]').attr('src', newSrc);
 							$('img[src="' + newSrc + '"]').attr('style', 'padding-top: 5px;border: 0;');
+							
+						//change donation option label
+						$('td.BBFieldCaption').html('I wish to make a contribution in support of the Malvern Urban Farm Project');
 					}
 				},
 				// modify the quick search part
